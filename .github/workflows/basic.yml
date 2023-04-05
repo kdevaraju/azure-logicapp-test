@@ -37,20 +37,17 @@ jobs:
       with:
         inlineScript: |
             az config set bicep.use_binary_from_path=False
-            az bicep build --file main.bicep 
+            az bicep build --file main.bicep
         
     # Validate whether a template is valid at subscription scope
     - name: Bicep Validate
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          az deployment sub create -f ./main.bicep --location eastus
           az deployment sub validate \
             --name validate-${{ github.run_id }} \
             --template-file main.bicep \
-            --parameters @azuredeploy.parameters.json \
             --location $LOCATION 
-
     # Perform a security scan of the bicep code using checkov
     - name: Run Checkov action
       id: checkov
