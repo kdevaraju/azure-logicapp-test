@@ -33,9 +33,11 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-            az config set bicep.use_binary_from_path=False
-            az deployment group create --resource-group EL --template-file main.bicep --template-parameter-file .\azuredeploy.parameters.json -c
-            az resource list --resource-group EL
+          az deployment group create \
+            --name ELDeployment \
+            --resource-group EL \
+            --template-file main.bicep \
+            --parameters @azuredeploy.parameters.json 
             
             
         
