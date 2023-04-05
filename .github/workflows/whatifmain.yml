@@ -39,6 +39,7 @@ jobs:
             --resource-group EL \
             --template-file main.bicep \
             --parameters @azuredeploy.parameters.json 
+          az resource list --resource-group EL
             
             
         
