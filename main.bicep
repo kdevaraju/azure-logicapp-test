@@ -1,3 +1,5 @@
+targetScope = 'resourceGroup'
+
 @description('The name of the logic app to create.')
 param logicAppName string
 
