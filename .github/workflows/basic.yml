@@ -37,7 +37,7 @@ jobs:
       with:
         inlineScript: |
             az config set bicep.use_binary_from_path=False
-            az bicep build --file main.bicep --parameters azuredeploy.parameters.json
+            az bicep build --file main.bicep 
         
     # Validate whether a template is valid at subscription scope
     - name: Bicep Validate
