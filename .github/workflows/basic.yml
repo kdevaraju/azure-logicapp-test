@@ -10,7 +10,8 @@ env:
 #Special permissions required for OIDC authentication
 permissions:
   id-token: write
-  contents: write
+  contents: read
+  actions: read
   security-events: write
 
 jobs:
