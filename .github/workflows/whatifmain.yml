@@ -33,6 +33,7 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
+          az config set bicep.use_binary_from_path=False
           az deployment group create \
             --name ELDeployment \
             --resource-group EL \
